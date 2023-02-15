@@ -9,7 +9,7 @@ public class Pizza {
     private boolean isTakeway;
     private boolean isBillGenarate;
     private  int toppings;
-    private  int totalAmount;
+    private  int totalAmount=0;
 
     private String bill;
 
@@ -25,6 +25,7 @@ public class Pizza {
             this.price = 400;
             this.toppings = 120;
         }
+        this.bill="Base Price Of The Pizza: "+this.price+ "\n";
     }
 
     public int getPrice(){
@@ -36,7 +37,7 @@ public class Pizza {
         // your code goes here
         if(!isExtraCheese)
         {
-            totalAmount+=80;
+            this.price+=80;
             isExtraCheese=true;
         }
     }
@@ -45,7 +46,7 @@ public class Pizza {
         // your code goes here
         if(!isExtrasToppings)
         {
-            totalAmount+=this.toppings;
+            this.price+=this.toppings;
             isExtrasToppings=true;
         }
     }
@@ -56,7 +57,7 @@ public class Pizza {
         if(!isTakeway)
         {
             isTakeway=true;
-            totalAmount+=20;
+            this.price+=20;
         }
     }
 
@@ -68,9 +69,9 @@ public class Pizza {
             if(!isBillGenarate)
             {
                 isBillGenarate=true;
-                bill="Base Price Of The Pizza: "+this.price+ "\n";
+//                this.bill="Base Price Of The Pizza: "+this.price+ "\n";
 
-                if(isExtraCheese ) this.bill+="Extra Cheese Added: 80"+"\n";
+                if(isExtraCheese ) this.bill+="Extra Cheese Added: "+80+"\n";
                 if(isExtrasToppings) this.bill+="Extra Toppings Added: "+this.toppings+"\n";
                 if(isTakeway) this.bill+="Paperbag Added: 20"+"\n";
                 this.bill+="Total Price: "+totalAmount;
